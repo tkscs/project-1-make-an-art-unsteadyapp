@@ -19,7 +19,7 @@ def triangleStarting():
   for i in range(3):
     forward(length)
     right(120)
-length = 1000
+length = 1000 # float
 triangleCorner = [(length/2,-length/2)]
 triangleStarting()
 for i in range(0,itterations):
