@@ -1,7 +1,8 @@
 from turtle import *
 import math
 tracer(0)
-itterations = 4
+itterations = 7 #integer
+
 def drawTriangle(x,y,size):
   up()
   goto(x,y)
@@ -11,16 +12,17 @@ def drawTriangle(x,y,size):
   for i in range(0,3):
     forward(size)
     right(angle)
-#triangleStarting
-up()
-goto(200,-100)
-down()
-length = 500
-setheading(180)
-for i in range(3):
-  forward(length)
-  right(120)
-triangleCorner = [(200,-100)]
+def triangleStarting():
+  up()
+  goto(triangleCorner[0])
+  down()
+  setheading(180)
+  for i in range(3):
+    forward(length)
+    right(120)
+length = 1000
+triangleCorner = [(length/2,-length/4)]
+triangleStarting()
 for i in range(0,itterations):
   for j in range(0,len(triangleCorner)):
     x,y = triangleCorner[j]
@@ -29,5 +31,6 @@ for i in range(0,itterations):
     relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
     triangleCorner.append((x-(length/4),relevent))
   length = length/2
+hideturtle()
 update()
 exitonclick()
