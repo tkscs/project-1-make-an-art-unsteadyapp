@@ -2,7 +2,6 @@ from turtle import *
 import math
 tracer(0)
 itterations = 7 #integer
-
 def drawTriangle(x,y,size):
   up()
   goto(x,y)
@@ -21,7 +20,7 @@ def triangleStarting():
     forward(length)
     right(120)
 length = 1000
-triangleCorner = [(length/2,-length/4)]
+triangleCorner = [(length/2,-length/2)]
 triangleStarting()
 for i in range(0,itterations):
   for j in range(0,len(triangleCorner)):
