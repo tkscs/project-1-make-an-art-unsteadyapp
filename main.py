@@ -1,7 +1,7 @@
 from turtle import *
 import math
 tracer(0)
-itterations = 8 #integer
+itterations = 7 #integer
 def drawTriangle(x,y,size,uptriangle = True):
   up()
   goto(x,y)
@@ -57,20 +57,6 @@ if(draw == "normal"):
       triangleCorner.append((x-(length/2),y))
       relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
       triangleCorner.append((x-(length/4),relevent))
-    length = length/2
-else:
-  #only draw in the middle triangles
-  length = 500 # float
-  length2 = length/2
-  triangleCorner = [[length/2,-length/2,1]]
-  triangleStarting()
-  for i in range(0,itterations):
-    for j in range(0,len(triangleCorner)):
-      x,y,UpOrDown = triangleCorner[j]
-      if(UpOrDown):
-        drawTriangle(x,y,length/2,UpOrDown)
-      triangleCorner.append([x,y+length/2,UpOrDown*-1])
-      relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
     length = length/2
 hideturtle()
 update()
