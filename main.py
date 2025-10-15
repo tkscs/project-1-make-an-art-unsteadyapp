@@ -2,6 +2,7 @@ from turtle import *
 import math
 tracer(0)
 itterations = 7 #integer
+drawSmaller = False
 def drawTriangle(x,y,size,uptriangle = True):
   up()
   goto(x,y)
@@ -32,7 +33,7 @@ def triangleStarting():
   for i in range(3):
     forward(length)
     right(120)
-draw = "normal"
+draw = "normal" # normal is the only one right now
 if(draw == "normal"):
   length = 1000 # float
   length2 = length/2
@@ -46,18 +47,19 @@ if(draw == "normal"):
       relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
       triangleCorner.append((x-(length/4),relevent))
     length = length/2
-  length = length2*2
-  triangleCorner = [((length),(-length/2))]
-  length = length2 # float
-  triangleStarting()
-  for i in range(0,itterations):
-    for j in range(0,len(triangleCorner)):
-      x,y = triangleCorner[j]
-      drawTriangle(x-(length/2),y,length/2)
-      triangleCorner.append((x-(length/2),y))
-      relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
-      triangleCorner.append((x-(length/4),relevent))
-    length = length/2
+  if(drawSmaller):
+    length = length2*2
+    triangleCorner = [((length),(-length/2))]
+    length = length2 
+    triangleStarting()
+    for i in range(0,itterations):
+      for j in range(0,len(triangleCorner)):
+        x,y = triangleCorner[j]
+        drawTriangle(x-(length/2),y,length/2)
+        triangleCorner.append((x-(length/2),y))
+        relevent = y+math.sqrt(math.pow(0.5*length,2)-math.pow(0.25*length,2))
+        triangleCorner.append((x-(length/4),relevent))
+      length = length/2
 hideturtle()
 update()
 exitonclick()
